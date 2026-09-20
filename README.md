@@ -15,6 +15,22 @@ An ArcGIS Pro screening workflow for identifying areas near roads and lakes that
 - `images/road-and-lake-candidates.png` — areas meeting both proximity criteria.
 - `images/candidates-by-ownership.png` — candidate areas categorized by mapped ownership.
 
+## Visualizations
+
+The screening sequence below shows the buffer inputs, the combined road-and-lake candidates, and the ownership context used for preliminary review.
+
+![Road and lake buffer zones](images/road-and-lake-buffers.png)
+
+*Road and lake proximity buffers.*
+
+![Road and lake candidate areas](images/road-and-lake-candidates.png)
+
+*Areas meeting both proximity criteria.*
+
+![Candidates by mapped ownership](images/candidates-by-ownership.png)
+
+*Candidate areas categorized by mapped ownership.*
+
 ## Limitations
 
 This is a preliminary map-screening exercise, not a suitability determination. It does not verify legal or practical access, ownership, zoning, terrain, flood exposure, environmental constraints, utilities, permissions, or usable campground area. Mapped proximity and ownership should be validated against current authoritative records before decisions are made. The public-land area was not recalculated in the source work.
