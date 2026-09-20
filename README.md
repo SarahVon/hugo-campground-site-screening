@@ -21,7 +21,7 @@ The workflow asks: **Where do mapped road and lake proximity criteria overlap, a
 
 ## Data availability and source data
 
-The source work used mapped road, lake, and land-ownership layers in an ArcGIS Pro project near Hugo, Minnesota. The published repository contains the three exported maps and this explanation; it does not contain the original geodatabase or project package. Source files are not bundled because the supplied files do not document the original source or redistribution license for the campground layers. Obtain an authorized copy from the original data provider or project owner, and confirm permission before downloading, sharing, or reusing it. The ownership result is limited to the supplied private-land layer and should not be treated as current title or permission information.
+I used mapped road, lake, and land-ownership layers in an ArcGIS Pro project near Hugo, Minnesota. The available outputs are three exported maps and this explanation; the original geodatabase and project package are not included. Source files are not bundled because the supplied files do not document the original source or redistribution license for the campground layers. Obtain an authorized copy from the original data provider or project owner, and confirm permission before downloading, sharing, or reusing it. The ownership result is limited to the supplied private-land layer and should not be treated as current title or permission information.
 
 ## Layers used
 
@@ -31,7 +31,7 @@ The analysis used these source layers:
 - `roads` — road proximity input
 - `Public_Hugo` — mapped ownership input used to review public/private overlap
 
-These names identify the layers used by the analysis, not files included in this repository. The original source and license for all three layers are not documented in the supplied files, so they are withheld pending confirmation.
+These names identify the layers used by the analysis, not files included with the outputs. The original source and license for all three layers are not documented in the supplied files, so I withhold them pending confirmation.
 
 ## Source links and attribution
 
@@ -71,7 +71,7 @@ Results depend on the dates, scale, definitions, and positional accuracy of the 
 
 ## Reproducibility and attribution
 
-The committed maps are derived outputs, not the source data. The methods can be reproduced in ArcGIS Pro with an authorized copy of the source layers, the stated buffer distances, dissolved road buffers, overlay, multipart-to-singlepart processing, area calculation, and private-land erase/selection steps. Exact regeneration cannot be completed from this repository alone until source-data permissions and provenance are confirmed. Map credits shown on the original layouts include Metropolitan Council, MetroGIS, Esri, TomTom, Garmin, FAO, NOAA, USGS, EPA, NPS, and USFWS. Verify current source terms before reuse.
+The maps are derived outputs, not the source data. I can reproduce the methods in ArcGIS Pro with an authorized copy of the source layers, the stated buffer distances, dissolved road buffers, overlay, multipart-to-singlepart processing, area calculation, and private-land erase/selection steps. Exact regeneration requires confirmed source-data permissions and provenance. Map credits shown on the original layouts include Metropolitan Council, MetroGIS, Esri, TomTom, Garmin, FAO, NOAA, USGS, EPA, NPS, and USFWS. Verify current source terms before reuse.
 
 ## Repository contents
 
