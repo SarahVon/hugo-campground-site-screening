@@ -5,7 +5,9 @@ An ArcGIS Pro screening workflow for identifying areas near roads and lakes that
 ## Contents
 
 - [Purpose and questions](#purpose-and-questions)
-- [Data and source boundary](#data-and-source-boundary)
+- [Data availability and source data](#data-availability-and-source-data)
+- [Layers used](#layers-used)
+- [Source links and attribution](#source-links-and-attribution)
 - [Workflow and map sequence](#workflow-and-map-sequence)
 - [Findings](#findings)
 - [Screening versus suitability](#screening-versus-suitability)
@@ -17,9 +19,23 @@ An ArcGIS Pro screening workflow for identifying areas near roads and lakes that
 
 The workflow asks: **Where do mapped road and lake proximity criteria overlap, and which of those preliminary areas overlap mapped private land?** It is intended to narrow a study area for later review, not to identify a confirmed campground site.
 
-## Data and source boundary
+## Data availability and source data
 
-The source work used mapped road, lake, and land-ownership layers in an ArcGIS Pro project near Hugo, Minnesota. The published repository contains the three exported maps and this explanation; it does not contain the original geodatabase or project package. The ownership result is limited to the supplied private-land layer and should not be treated as current title or permission information.
+The source work used mapped road, lake, and land-ownership layers in an ArcGIS Pro project near Hugo, Minnesota. The published repository contains the three exported maps and this explanation; it does not contain the original geodatabase or project package. Source files are not bundled because the supplied files do not document the original source or redistribution license for the campground layers. Obtain an authorized copy from the original data provider or project owner, and confirm permission before downloading, sharing, or reusing it. The ownership result is limited to the supplied private-land layer and should not be treated as current title or permission information.
+
+## Layers used
+
+The analysis used these source layers:
+
+- `Lakes` — lake proximity input
+- `roads` — road proximity input
+- `Public_Hugo` — mapped ownership input used to review public/private overlap
+
+These names identify the layers used by the analysis, not files included in this repository. The original source and license for all three layers are not documented in the supplied files, so they are withheld pending confirmation.
+
+## Source links and attribution
+
+No authoritative download or license URL for `Lakes`, `roads`, or `Public_Hugo` is preserved in the supplied project documentation. The original map credits name Metropolitan Council, MetroGIS, Esri, TomTom, Garmin, FAO, NOAA, USGS, EPA, NPS, and USFWS; treat those credits as leads for provenance, not as confirmation that any one provider supplied each layer. Verify the applicable provider terms and attribution requirements from an official source or authorized copy before reuse.
 
 ## Workflow and map sequence
 
@@ -55,7 +71,7 @@ Results depend on the dates, scale, definitions, and positional accuracy of the 
 
 ## Reproducibility and attribution
 
-The methods can be reproduced in ArcGIS Pro with the source layers, the stated buffer distances, dissolved road buffers, overlay, multipart-to-singlepart processing, area calculation, and private-land erase/selection steps. The original geodatabase and ArcGIS project are not published, so exact regeneration is bounded by access to those source files. Map credits shown on the original layouts include Metropolitan Council, MetroGIS, Esri, TomTom, Garmin, FAO, NOAA, USGS, EPA, NPS, and USFWS. Verify current source terms before reuse.
+The committed maps are derived outputs, not the source data. The methods can be reproduced in ArcGIS Pro with an authorized copy of the source layers, the stated buffer distances, dissolved road buffers, overlay, multipart-to-singlepart processing, area calculation, and private-land erase/selection steps. Exact regeneration cannot be completed from this repository alone until source-data permissions and provenance are confirmed. Map credits shown on the original layouts include Metropolitan Council, MetroGIS, Esri, TomTom, Garmin, FAO, NOAA, USGS, EPA, NPS, and USFWS. Verify current source terms before reuse.
 
 ## Repository contents
 
