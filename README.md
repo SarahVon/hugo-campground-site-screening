@@ -1,81 +1,52 @@
 # Hugo Campground Site Screening
 
-An ArcGIS Pro screening workflow for identifying areas near roads and lakes that may warrant further campground-site review near Hugo, Minnesota. The analysis is deliberately a **screening exercise**, not a suitability or development decision.
+An ArcGIS Pro workflow for screening areas near roads and lakes that may warrant further campground-site review near Hugo, Minnesota. This is a **screening exercise**, not a suitability or development decision.
 
-## Contents
+## Purpose
 
-- [Purpose and questions](#purpose-and-questions)
-- [Data availability and source data](#data-availability-and-source-data)
-- [Layers used](#layers-used)
-- [Source links and attribution](#source-links-and-attribution)
-- [Workflow and map sequence](#workflow-and-map-sequence)
-- [Findings](#findings)
-- [Screening versus suitability](#screening-versus-suitability)
-- [Limitations](#limitations)
-- [Reproducibility and attribution](#reproducibility-and-attribution)
-- [Repository contents](#repository-contents)
+I created this workflow to identify areas within **300 meters of a road** and **100 meters of a lake**, then review which preliminary areas overlap the supplied mapped ownership layer. The three maps show the progression from proximity inputs to candidate areas to an ownership overlay.
 
-## Purpose and questions
+## Data and attribution
 
-The workflow asks: **Where do mapped road and lake proximity criteria overlap, and which of those preliminary areas overlap mapped private land?** It is intended to narrow a study area for later review, not to identify a confirmed campground site.
+The analysis uses `Lakes`, `roads`, and `Public_Hugo` layers from the supplied ArcGIS Pro project. The source geodatabase and project package are not included because the original provenance and redistribution terms for these campground layers are not documented. Obtain authorized copies and confirm current permissions before reuse. The ownership result reflects only the supplied layer and is not current title or permission information.
 
-## Data availability and source data
-
-I used mapped road, lake, and land-ownership layers in an ArcGIS Pro project near Hugo, Minnesota. The available outputs are three exported maps and this explanation; the original geodatabase and project package are not included. Source files are not bundled because the supplied files do not document the original source or redistribution license for the campground layers. Obtain an authorized copy from the original data provider or project owner, and confirm permission before downloading, sharing, or reusing it. The ownership result is limited to the supplied private-land layer and should not be treated as current title or permission information.
-
-## Layers used
-
-The analysis used these source layers:
-
-- `Lakes` — lake proximity input
-- `roads` — road proximity input
-- `Public_Hugo` — mapped ownership input used to review public/private overlap
-
-These names identify the layers used by the analysis, not files included with the outputs. The original source and license for all three layers are not documented in the supplied files, so I withhold them pending confirmation.
-
-## Source links and attribution
-
-No authoritative download or license URL for `Lakes`, `roads`, or `Public_Hugo` is preserved in the supplied project documentation. The original map credits name Metropolitan Council, MetroGIS, Esri, TomTom, Garmin, FAO, NOAA, USGS, EPA, NPS, and USFWS; treat those credits as leads for provenance, not as confirmation that any one provider supplied each layer. Verify the applicable provider terms and attribution requirements from an official source or authorized copy before reuse.
+Map credits identify Metropolitan Council, MetroGIS, Esri, TomTom, Garmin, FAO, NOAA, USGS, EPA, NPS, and USFWS; verify the applicable provider terms before reuse.
 
 ## Workflow and map sequence
 
-### 1. Build proximity inputs
+### 1. Proximity inputs
 
 ![Road and lake buffer zones](images/road-and-lake-buffers.png)
 
-I created **300-meter road buffers** and **100-meter lake buffers**. Overlapping road buffers were dissolved to create a clearer analysis zone. This map shows the two inputs; it does not identify campground candidates yet.
+I created 300-meter road buffers and 100-meter lake buffers, dissolving overlapping road buffers for a clearer analysis zone.
 
-### 2. Screen for areas meeting both criteria
+### 2. Candidate areas
 
 ![Road and lake candidate areas](images/road-and-lake-candidates.png)
 
-I overlaid the buffers to isolate areas within **300 meters of a road and 100 meters of a lake**, converted multipart results to singlepart features, and calculated polygon area.
+I overlaid the buffers, retained areas meeting both distance criteria, converted multipart results to singlepart features, and calculated polygon area.
 
-### 3. Review candidates by mapped ownership
+### 3. Ownership review
 
 ![Candidates by mapped ownership](images/candidates-by-ownership.png)
 
-I used the private-land layer to separate the candidate areas into a public-land selection and candidate areas overlapping private land. Public-land candidates are green; red shows only candidate areas overlapping private land, not every private parcel in the study area.
+I used the supplied ownership layer to distinguish public-land candidates from candidates overlapping mapped private land. Red polygons show candidate overlap, not every private parcel.
 
 ## Findings
 
-The combined proximity candidates total **334.07 hectares before ownership filtering**. This is an area of mapped proximity overlap, not 334.07 hectares of confirmed buildable, accessible, or suitable campground land. The source work did not recalculate the public-land candidate area, so no public-land total is reported here.
+The proximity candidates total **334.07 hectares before ownership filtering**. This is mapped overlap area, not confirmed buildable, accessible, or suitable campground land. The source work did not recalculate a public-land total.
 
 ## Screening versus suitability
 
-The workflow does not verify legal or practical road access, current ownership, permissions, zoning, terrain, flood exposure, environmental constraints, utilities, or usable campground area. Small or narrow polygons may be unsuitable in practice. A next step would be to validate ownership and access, calculate the remaining public-land area, and assess additional site constraints.
+The workflow does not verify legal access, current ownership, permissions, zoning, terrain, flood exposure, environmental constraints, utilities, or usable campground area. Small or narrow polygons may be unsuitable. Further review should validate ownership and access, calculate remaining public-land area, and assess site constraints.
 
-## Limitations
+## Reproducibility
 
-Results depend on the dates, scale, definitions, and positional accuracy of the source layers. Distance thresholds are analytical choices rather than standards for campground development. The maps show candidate geometry and a mapped ownership overlay, not feasibility, environmental review, or a recommendation.
-
-## Reproducibility and attribution
-
-The maps are derived outputs, not the source data. I can reproduce the methods in ArcGIS Pro with an authorized copy of the source layers, the stated buffer distances, dissolved road buffers, overlay, multipart-to-singlepart processing, area calculation, and private-land erase/selection steps. Exact regeneration requires confirmed source-data permissions and provenance. Map credits shown on the original layouts include Metropolitan Council, MetroGIS, Esri, TomTom, Garmin, FAO, NOAA, USGS, EPA, NPS, and USFWS. Verify current source terms before reuse.
+With authorized source layers, the workflow can be recreated in ArcGIS Pro using the stated buffers, dissolved road zones, overlay, multipart-to-singlepart processing, area calculation, and ownership selection/erase steps. Exact regeneration requires confirmed source-data provenance and permissions.
 
 ## Repository contents
 
-- `images/road-and-lake-buffers.png` — proximity inputs
-- `images/road-and-lake-candidates.png` — combined proximity candidates
-- `images/candidates-by-ownership.png` — ownership review
-- `README.md` — methods, interpretation, and reuse boundary
+- `images/road-and-lake-buffers.png`
+- `images/road-and-lake-candidates.png`
+- `images/candidates-by-ownership.png`
+- `README.md`
